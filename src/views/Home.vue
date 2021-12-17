@@ -26,7 +26,7 @@ export default {
     const store = useStore()
 
     return {
-      form: computed(() => store.state.form)
+      form: computed(() => store.state.tarefa.form)
     }
   }
 }

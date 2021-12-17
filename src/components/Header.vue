@@ -21,8 +21,8 @@ export default({
         const store = useStore()
         
         return {
-            form: computed(() => store.state.form),
-            showForm: () => store.commit('showForm')
+            form: computed(() => store.state.tarefa.form),
+            showForm: () => store.commit('tarefa/showForm')
         }
     },
 })

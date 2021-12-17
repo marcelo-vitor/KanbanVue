@@ -94,14 +94,14 @@ export default {
     const store = useStore();
 
     return {
-      tarefasToDo: computed(() => store.state.tarefasToDo),
-      tarefasProgress: computed(() => store.state.tarefasProgress),
-      tarefasDone: computed(() => store.state.tarefasDone),
-      setProgress: (tarefa, currentList) => store.commit('setProgress', {tarefa, currentList}),
-      setDone: (tarefa) => store.commit('setDone', tarefa),
-      setToDo: (tarefa) => store.commit('setToDo', tarefa),
-      del: (tarefa, currentList) => store.commit('delete', {tarefa, currentList}),
-      edit: (tarefa, currentList) => store.commit('edit', {tarefa, currentList})
+      tarefasToDo: computed(() => store.state.tarefa.tarefasToDo),
+      tarefasProgress: computed(() => store.state.tarefa.tarefasProgress),
+      tarefasDone: computed(() => store.state.tarefa.tarefasDone),
+      setProgress: (tarefa, currentList) => store.commit('tarefa/setProgress', {tarefa, currentList}),
+      setDone: (tarefa) => store.commit('tarefa/setDone', tarefa),
+      setToDo: (tarefa) => store.commit('tarefa/setToDo', tarefa),
+      del: (tarefa, currentList) => store.commit('tarefa/delete', {tarefa, currentList}),
+      edit: (tarefa, currentList) => store.commit('tarefa/edit', {tarefa, currentList})
     };
   },
 };
