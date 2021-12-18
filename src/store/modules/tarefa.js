@@ -1,3 +1,7 @@
+import { useToast } from "vue-toastification"
+
+const toast = useToast()
+
 export default {
     namespaced: true,
     state: {
@@ -33,6 +37,11 @@ export default {
           this.commit('tarefa/clear')
         },
         create(state) {
+          if(!state.tarefa.titulo || !state.tarefa.descricao){
+            toast.error("Preencha todos os campos!", { timeout: 2000 })
+            return 
+          }
+
           state.tarefasToDo.push({ ...state.tarefa })
           console.log(state.tarefa)
           this.commit('tarefa/save')
@@ -121,6 +130,10 @@ export default {
           }
         },
         update(state){
+          if(!state.tarefa.titulo || !state.tarefa.descricao){
+            toast.error("Preencha todos os campos!", { timeout: 2000 })
+            return 
+          }
           if(state.currentList === 'ToDo'){
             state.tarefasToDo[state.posEdit].titulo = state.tarefa.titulo
             state.tarefasToDo[state.posEdit].descricao = state.tarefa.descricao
