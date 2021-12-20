@@ -36,6 +36,7 @@
             class="card card-light card-outline mt-3"
             v-for="(tarefa, index) in tarefasProgress"
             :key="index"
+            draggable="true"
           >
             <div class="card-header d-flex justify-content-between">
               <h5 class="card-title">{{ tarefa.titulo }}</h5>
@@ -91,7 +92,7 @@ import { useStore } from "vuex";
 
 export default {
   setup() {
-    const store = useStore();
+    const store = useStore()
 
     return {
       tarefasToDo: computed(() => store.state.tarefa.tarefasToDo),

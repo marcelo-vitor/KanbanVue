@@ -43,7 +43,7 @@ export default {
           }
 
           state.tarefasToDo.push({ ...state.tarefa })
-          console.log(state.tarefa)
+          toast.success('Registro salvo com sucesso!', { timeout: 2000 })
           this.commit('tarefa/save')
           this.commit('tarefa/closeForm')
           this.commit('tarefa/clear')
@@ -101,7 +101,8 @@ export default {
             state.tarefasDone.splice(pos, 1)
             this.commit('tarefa/closeFormEdit', {currentList, pos})
           }
-    
+        
+          toast.success('Registro deletado com sucesso!', { timeout: 2000 })
           this.commit('tarefa/save')
         },
         edit(state, {tarefa, currentList}){
@@ -144,7 +145,9 @@ export default {
             state.tarefasDone[state.posEdit].titulo = state.tarefa.titulo
             state.tarefasDone[state.posEdit].descricao = state.tarefa.descricao
           }
-    
+          
+          
+          toast.success('Registro atualizado com sucesso!', { timeout: 2000 })
           this.commit('tarefa/save')
           this.commit('tarefa/closeForm')
           this.commit('tarefa/clear')

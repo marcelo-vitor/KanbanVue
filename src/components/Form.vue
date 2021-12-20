@@ -28,7 +28,7 @@
       <button class="btn btn-primary" @click="create" v-if="posEdit === null">
         Cadastrar
       </button>
-      <button class="btn btn-primary" @click="update" v-if="posEdit !== null">
+      <button class="btn btn-primary" @click="update" v-else>
         Atualizar
       </button>
     </div>
